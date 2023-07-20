@@ -20,18 +20,24 @@ MV Slider is distributed in the hope that it will be useful, but WITHOUT ANY WAR
 You should have received a copy of the GNU General Public License along with MV Slider. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 */
 
-if ( ! defined('ABSPATH') ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if( ! class_exists('MV_Slider') ) {
+if( ! class_exists( 'MV_Slider' ) ) {
 	class MV_Slider {
 		function __construct() {
+			$this->define_constants();
+		}
 
+		public function define_constants(): void {
+			define( 'MV_SLIDER_PATH', plugin_dir_path( __FILE__ ));
+			define( 'MV_SLIDER_URL', plugin_dir_url( __FILE__ ));
+			define( 'MV_SLIDER_VERSION', '1.0.0' );
 		}
 	}
 }
 
-if( class_exists('MV_Slider') ) {
+if( class_exists( 'MV_Slider' ) ) {
 	$mv_slider = new MV_Slider();
 }
